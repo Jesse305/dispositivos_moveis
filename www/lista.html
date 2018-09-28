@@ -1,10 +1,20 @@
 <ion-view>
-    <ion-header class="bar-stable">
-        <h2 class="title">Listagem</h2>
-    </ion-header>
-    <ion-content>
-        <ion-list>
-            <ion-item ng-repeat="nome in nomes">{{nome}}</ion-item>
+    <div class="bar bar-subheader">
+        <h2 class="title">Lista</h2>
+    </div>
+    <ion-content style="margin-top: 50px;">
+        <div class="row">
+            <button class="button button-outline button-positive" ui-sref="cadastro" title="Voltar">
+                <i class="icon ion-chevron-left"></i>
+            </button>
+        </div>
+        <ion-list style="margin-top: 10px;">
+            <ion-item class="item-button-right" ng-repeat="pessoa in pessoas">
+                {{pessoa.nome + " " + pessoa.sobrenome}}
+                <a class="button button-positive" title="Dados" href="#/dados/{{pessoa.key}}">
+                    <i class="icon ion-document-text"></i>
+                </a>
+            </ion-item>
         </ion-list>
     </ion-content>
 </ion-view>

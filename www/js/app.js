@@ -36,25 +36,40 @@ app.config(function($stateProvider, $urlRouterProvider){
     url: '/listar', 
     templateUrl: 'lista.html',
     controller: 'ctrl'
+  })
+  .state('dados', {
+    url: '/dados/:pessoa_key', 
+    templateUrl: 'dados.html',
+    controller: 'ctrl'
   });
   $urlRouterProvider.otherwise('/cadastro');
 });
 
-app.controller('ctrl', function($scope){
+app.controller('ctrl', function($scope, $stateParams){
   $scope.data = {};
 
   $scope.salvar = function(){
-    window.localStorage.setItem($scope.data.nome, $scope.data.nome);
+    var key = Date.now();
+    var pessoa = {
+      'key' : key,
+      'nome' : $scope.data.nome,
+      'sobrenome' : $scope.data.sobrenome,
+    };
+    window.localStorage.setItem(key, JSON.stringify(pessoa));
   }
 
   $scope.carregar = function(){
     keys = Object.keys(window.localStorage);
 
-    $scope.nomes = [];
+    $scope.pessoas = [];
 
     for(var i = 0; i < window.localStorage.length; i++){
-      $scope.nomes.push(window.localStorage.getItem(keys[i]));
+      $scope.pessoas.push(JSON.parse(window.localStorage.getItem(keys[i])));
     }
   }
   $scope.carregar();
+
+  $scope.dados_pessoa = JSON.parse(window.localStorage.getItem($stateParams.pessoa_key));
+
 });
+

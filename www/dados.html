@@ -1,0 +1,20 @@
+<ion-view>
+    <div class="bar bar-subheader">
+        <h2 class="title">Dados</h2>
+    </div>
+    <ion-content style="margin-top: 50px;">
+        <div class="row">
+            <button class="button button-outline button-positive" ui-sref="listar" title="Voltar">
+                <i class="icon ion-chevron-left"></i>
+            </button>
+        </div>
+        <ion-list>
+            <ion-item>
+                Nome: {{ dados_pessoa.nome }}
+            </ion-item>
+            <ion-item>
+                Sobrenome: {{ dados_pessoa.sobrenome }}
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

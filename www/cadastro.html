@@ -1,11 +1,25 @@
 <ion-view>
-    <ion-content>
+    <div class="bar bar-subheader">
+        <h2 class="title">Cadastro</h2>
+    </div>
+    <ion-content style="margin-top: 50px;">
+        <div class="row" style="text-align:right">
+            <div class="col" style="text-align:right">
+                <button class="button button-outline button-positive" ui-sref="listar" title="Listar">
+                    <i class="icon ion-chevron-right"></i>
+                </button>
+            </div>
+        </div>
         <label class="item item-input">
             <input type="text" ng-model="data.nome" placeholder="Digite seu nome">
         </label>
-
-        <button class="button button-block button-positive" ng-click="salvar()">Salvar</button>
-
-        <button class="button button-block button-positive" ui-sref="listar">Listar</button>
+        <label class="item item-input">
+            <input type="text" ng-model="data.sobrenome" placeholder="Digite seu sobrenome">
+        </label>
+        <div class="row" style="margin-top: 20px;">
+            <div class="col" style="text-align: center">
+                <button class="button button-positive" ng-click="salvar()" ui-sref="listar">Salvar</button>
+            </div>
+        </div>
     </ion-content>
 </ion-view>
